@@ -102,9 +102,10 @@ function googleMap(mapLink) {
 }
 function selectBox(countries) {
   const country = document.getElementById("country");
-  countries.forEach((item) => {
+  let sortedCountry = countries.map((item) => item.name.common);
+  sortedCountry.sort().forEach((item) => {
     const option = document.createElement("option");
-    const optionsNode = document.createTextNode(item.name.common);
+    const optionsNode = document.createTextNode(item);
     option.appendChild(optionsNode);
     country.appendChild(option);
   });
